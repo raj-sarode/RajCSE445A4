@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Hotels>
+
+  <!-- E1: Missing required Phone -->
+  <Hotel>
+    <Name>Broken Hotel A</Name>
+    <Address NearestAirport="Sky Harbor">
+      <Number>11</Number>
+      <Street>E 7th St</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+    </Address>
+  </Hotel>
+
+  <!-- E2: Wrong order (Required order is Name, Phone, and Address) -->
+  <Hotel Rating="3.9">
+    <Name>Broken Hotel B</Name>
+    <Address NearestAirport="Sky Harbor">
+      <Number>1413</Number>
+      <Street>W Rio Salado Pkwy</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+    </Address>
+    <Phone>000-000-0000</Phone>
+  </Hotel>
+
+  <!-- E3: Duplicate Name -->
+  <Hotel>
+    <Name>Broken Hotel C</Name>
+    <Name>Duplicate Name</Name>
+    <Phone>480-967-9431</Phone>
+    <Address>
+      <Number>225</Number>
+      <Street>E Apache Blvd</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+    </Address>
+  </Hotel>
+
+  <!-- E4: Address missing required child -->
+  <Hotel Rating="4.0">
+    <Name>Broken Hotel D</Name>
+    <Phone>480-894-1400</Phone>
+    <Address NearestAirport="Sky Harbor">
+      <Number>60</Number>
+      <Street>E 5th St</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <!-- Zip is REQUIRED by XSD but omitted here -->
+    </Address>
+  </Hotel>
+
+  <!-- E5: Unexpected element under Hotel -->
+  <Hotel Rating="4.3">
+    <Name>Broken Hotel E</Name>
+    <Phone>480-642-6140</Phone>
+    <Address>
+      <Number>100</Number>
+      <Street>E Rio Salado Pkwy</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+    </Address>
+    <Extra>Not allowed</Extra>
+  </Hotel>
+
+  <!-- E6: Address has an undeclared attribute -->
+  <Hotel>
+    <Name>Broken Hotel F</Name>
+    <Phone>480-968-0000</Phone>
+    <Address UnknownAttr="x">
+      <Number>720</Number>
+      <Street>N Mill Ave</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+    </Address>
+  </Hotel>
+
+</Hotels>
